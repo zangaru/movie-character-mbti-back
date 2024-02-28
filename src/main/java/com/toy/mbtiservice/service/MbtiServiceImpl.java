@@ -1,6 +1,7 @@
 package com.toy.mbtiservice.service;
 
 import com.toy.mbtiservice.dto.MbtiDto;
+import com.toy.mbtiservice.repository.MbtiRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 @Transactional
 @RequiredArgsConstructor
 public class MbtiServiceImpl implements MbtiService {
+
+    private final MbtiRepository mbtiRepository;
 
     @Override
     public String calMbtiResult(MbtiDto mbtiDto) {
