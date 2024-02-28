@@ -19,8 +19,8 @@ public class MbtiController {
     private final MbtiRepository mbtiRepository;
 
     @PostMapping(value = "/result")
-    public String calMbti(@RequestBody MbtiDto mbtiDto) {
-        String result = mbtiService.calMbtiResult(mbtiDto); //mbti 결과
+    public String calculateMbti(@RequestBody MbtiDto mbtiDto) {
+        String result = mbtiService.calculateMbtiResult(mbtiDto); //mbti 결과
 
         MbtiResult mbtiResult = mbtiDto.toEntity();
 

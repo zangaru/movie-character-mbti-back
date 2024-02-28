@@ -14,7 +14,7 @@ public class MbtiServiceImpl implements MbtiService {
     private final MbtiRepository mbtiRepository;
 
     @Override
-    public String calMbtiResult(MbtiDto mbtiDto) {
+    public String calculateMbtiResult(MbtiDto mbtiDto) {
         if (mbtiDto.getE() > mbtiDto.getI()) {
             mbtiDto.setMbti1("E");
         } else {
