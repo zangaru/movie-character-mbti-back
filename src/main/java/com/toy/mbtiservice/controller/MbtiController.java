@@ -5,10 +5,10 @@ import com.toy.mbtiservice.dto.MbtiDto;
 import com.toy.mbtiservice.repository.MbtiRepository;
 import com.toy.mbtiservice.service.MbtiService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/mbti")
@@ -17,6 +17,7 @@ public class MbtiController {
 
     private final MbtiService mbtiService;
     private final MbtiRepository mbtiRepository;
+
 
     @PostMapping(value = "/result")
     public String calculateMbti(@RequestBody MbtiDto mbtiDto) {
@@ -27,5 +28,13 @@ public class MbtiController {
         mbtiRepository.save(mbtiResult);
 
         return result;
+    }
+
+    @GetMapping("/count")
+    public Map<String, Long> getParticipantCount() {
+        long participantCount = mbtiRepository.count();
+        Map<String, Long> response = new HashMap<>();
+        response.put("participantCount", participantCount);
+        return response;
     }
 }
