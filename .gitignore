@@ -39,5 +39,5 @@ out/
 application.properties
 
 # Spring WebConfig
-/src/main/java/com/toy/mbtiservice/WebConfig.java
+# /src/main/java/com/toy/mbtiservice/WebConfig.java
 
